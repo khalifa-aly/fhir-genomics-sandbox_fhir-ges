@@ -1,3 +1,9 @@
+# FHIR Genomics Reporting Sandbox (FGRS)
+This is a research project to develop a sandbox for FHIR Genomics Reporting IG STU1.
+It does not intend to include, process, store, or use any patient data.
+FHIR Genomics Reporting Sandbox (FGRS) pronounced as "figures"
+It is based on HAPI FHIR project described below
+
 # HAPI-FHIR Starter Project
 
 This project is a complete starter project you can use to deploy a FHIR server using HAPI FHIR JPA.
