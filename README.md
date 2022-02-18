@@ -6,6 +6,7 @@ It does not intend to include, process, store, or use any patient data.
 FHIR Genomics Reporting Sandbox (FGRS) acronym is pronounced as "figures".
 
 It is based on HAPI FHIR project described below.
+The docker container is not yet configured to reflect the genomics components.
 
 # HAPI-FHIR Starter Project
 
