@@ -63,6 +63,7 @@ hapi:
     #        version: 1.0.0
     implementationguides:
       genomics_reporting:
+        url: http://hl7.org/fhir/uv/genomics-reporting/package.tgz
         name: hl7.fhir.uv.genomics-reporting
         version: 1.0.0
     #    supported_resource_types:
