@@ -42,6 +42,7 @@ import ca.uhn.fhir.rest.server.interceptor.RequestValidatingInterceptor;
 import ca.uhn.fhir.rest.server.interceptor.ResponseHighlighterInterceptor;
 import ca.uhn.fhir.rest.server.interceptor.ResponseValidatingInterceptor;
 import ca.uhn.fhir.rest.server.interceptor.partition.RequestTenantPartitionInterceptor;
+import ca.uhn.fhir.rest.server.provider.ReindexProvider;
 import ca.uhn.fhir.rest.server.provider.ResourceProviderFactory;
 import ca.uhn.fhir.rest.server.tenant.UrlBaseTenantIdentificationStrategy;
 import ca.uhn.fhir.rest.server.util.ISearchParamRegistry;
@@ -95,6 +96,8 @@ public class BaseJpaRestfulServer extends RestfulServer {
   @Autowired
   ValueSetOperationProvider valueSetOperationProvider;
   @Autowired
+  ReindexProvider reindexProvider;
+  @Autowired
   BinaryStorageInterceptor binaryStorageInterceptor;
   @Autowired
   IPackageInstallerSvc packageInstallerSvc;
@@ -128,8 +131,10 @@ public class BaseJpaRestfulServer extends RestfulServer {
     // Customize supported resource types
     List<String> supportedResourceTypes = appProperties.getSupported_resource_types();
 
-    if (!supportedResourceTypes.isEmpty() && !supportedResourceTypes.contains("SearchParameter")) {
-      supportedResourceTypes.add("SearchParameter");
+    if (!supportedResourceTypes.isEmpty()) {
+      if (!supportedResourceTypes.contains("SearchParameter")) {
+        supportedResourceTypes.add("SearchParameter");
+      }
       daoRegistry.setSupportedResourceTypes(supportedResourceTypes);
     }
 
@@ -372,6 +377,9 @@ public class BaseJpaRestfulServer extends RestfulServer {
 
     // valueSet Operations i.e $expand
     registerProvider(valueSetOperationProvider);
+
+	 //reindex Provider $reindex
+	 registerProvider(reindexProvider);
 
     // Partitioning
     if (appProperties.getPartitioning() != null) {
