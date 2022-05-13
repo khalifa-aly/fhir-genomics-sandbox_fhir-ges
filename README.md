@@ -1,4 +1,4 @@
-# FHIR Genomics Reporting Sandbox (FGRS)
+# FHIR Genomics Sandbox (FHIR-GES)
 This is a research project to develop a sandbox for FHIR Genomics Reporting IG STU1.
 
 It does not intend to include, process, store, or use any patient data.
