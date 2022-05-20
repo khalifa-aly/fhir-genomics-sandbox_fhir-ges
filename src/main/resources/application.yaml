@@ -75,11 +75,11 @@ hapi:
     #        url: https://build.fhir.org/ig/HL7/fhir-ips/package.tgz
     #        name: hl7.fhir.uv.ips
     #        version: 1.0.0
-        implementationguides:
-          genomics_reporting:
-            url: http://hl7.org/fhir/uv/genomics-reporting/package.tgz
-            name: hl7.fhir.uv.genomics-reporting
-            version: 1.0.0
+    implementationguides:
+      genomics-reporting:
+        url: http://hl7.org/fhir/uv/genomics-reporting/package.tgz
+        name: hl7.fhir.uv.genomics-reporting
+        version: 2.0.0
     #    supported_resource_types:
     #      - Patient
     #      - Observation
